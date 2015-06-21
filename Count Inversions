@@ -1,0 +1,35 @@
+def count_inversion(sequence):
+    """
+        Count inversions in a sequence of numbers
+    """
+    #need to convert from tuple to list to get len value for loop.
+    outerCount = 0
+    numberOfInversion = 0
+    currentNumber = sequence[0]
+        #loop the all the values but -1 so that you do not grab a out of ranger error while setting secondNumber
+    while outerCount < len(sequence):
+        # add one to the inner count so you don't compare a number against itself.
+        innerCount = outerCount + 1
+        currentNumber = sequence[outerCount]
+        while innerCount < len(sequence):
+
+            # uncomment to assist in debugging
+            # print str(outerCount) + str(innerCount) + "number of inversions"
+            if currentNumber > sequence[innerCount]:
+            # uncomment line below to assist in debugging
+                #print str(currentNumber) + " " + str(sequence[innerCount]) + "   inversion"
+                numberOfInversion +=1
+
+            innerCount += 1
+        outerCount +=1
+
+
+    return numberOfInversion
+
+
+if __name__ == '__main__':
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    assert count_inversion((1, 2, 5, 3, 4, 7, 6)) == 3, "Example"
+    assert count_inversion((0, 1, 2, 3)) == 0, "Sorted"
+    assert count_inversion((99, -99)) == 1, "Two numbers"
+    assert count_inversion((5, 3, 2, 1, 0)) == 10, "Reversed"
