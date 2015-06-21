@@ -3,7 +3,8 @@ def left_join(phrases):
     """
         Join strings and replace "right" to "left"
     """
-    ' '.join(phrases)
+    phrases = ",".join(phrases)
+    phrases = phrases.replace("right", "left")
     print phrases
     # print re.search(r'right',phrases)
 
@@ -12,7 +13,7 @@ def left_join(phrases):
 
 
 
-    return "left"
+    return phrases
 
 left_join(("left", "right", "left", "stop"))
 
